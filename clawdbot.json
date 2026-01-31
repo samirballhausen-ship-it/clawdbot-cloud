@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.1.24-3",
+    "lastTouchedAt": "2026-01-31T14:00:00.000Z"
+  },
+  "browser": {
+    "enabled": false
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "token"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "sonnet",
+        "fallbacks": [
+          "haiku",
+          "opus"
+        ]
+      },
+      "models": {
+        "anthropic/claude-opus-4-5": {
+          "alias": "opus"
+        },
+        "anthropic/claude-sonnet-4-20250514": {
+          "alias": "sonnet"
+        },
+        "anthropic/claude-3-5-haiku-20241022": {
+          "alias": "haiku"
+        }
+      },
+      "workspace": "${CLAWDBOT_WORKSPACE:-/data/workspace}",
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "1h"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "typingIntervalSeconds": 4,
+      "typingMode": "instant",
+      "heartbeat": {
+        "every": "1h"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "web": {}
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    }
+  },
+  "gateway": {
+    "port": "${PORT:-18789}",
+    "mode": "production",
+    "bind": "0.0.0.0",
+    "auth": {
+      "mode": "token",
+      "token": "${GATEWAY_TOKEN}"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "remote": {
+      "url": "${ZEABUR_WEB_URL}",
+      "token": "${REMOTE_TOKEN}"
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "goplaces": {
+        "apiKey": "skip"
+      },
+      "nano-banana-pro": {
+        "apiKey": "${NANO_BANANA_PRO_API_KEY}"
+      },
+      "openai-image-gen": {
+        "apiKey": "${OPENAI_API_KEY}"
+      },
+      "openai-whisper-api": {
+        "apiKey": "${OPENAI_API_KEY}"
+      },
+      "local-ai-gen": {
+        "apiKey": "skip"
+      },
+      "brave-search": {
+        "apiKey": "${BRAVE_API_KEY}"
+      }
+    }
+  },
+  "plugins": {
+    "slots": {
+      "memory": "memory-lancedb"
+    },
+    "entries": {
+      "telegram": {
+        "enabled": true
+      },
+      "lobster": {
+        "enabled": true
+      },
+      "voice-call": {
+        "enabled": true
+      },
+      "memory-lancedb": {
+        "enabled": true,
+        "config": {
+          "embedding": {
+            "apiKey": "${OPENAI_API_KEY}"
+          }
+        }
+      },
+      "memory-core": {
+        "enabled": false
+      }
+    }
+  }
+}

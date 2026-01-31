@@ -1,0 +1,25 @@
+{
+  "name": "clawdbot-cloud",
+  "version": "2026.1.24-3",
+  "description": "Clawdbot Cloud Deployment für Zeabur - 24/7 AI Assistant",
+  "main": "index.js",
+  "engines": {
+    "node": "22.22.0"
+  },
+  "scripts": {
+    "start": "clawdbot gateway --port ${PORT:-18789}",
+    "postinstall": "npm install -g clawdbot@latest"
+  },
+  "keywords": [
+    "clawdbot",
+    "ai",
+    "assistant",
+    "claude",
+    "zeabur"
+  ],
+  "author": "Samir Ballhausen",
+  "license": "MIT",
+  "dependencies": {
+    "clawdbot": "latest"
+  }
+}

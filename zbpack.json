@@ -1,0 +1,5 @@
+{
+  "build_command": "npm install -g clawdbot@latest",
+  "start_command": "clawdbot gateway --port $PORT",
+  "node_version": "22"
+}

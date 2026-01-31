@@ -1,0 +1,36 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Clawdbot
+.clawdbot/credentials/
+.clawdbot/telegram/update-offset-default.json
+workspace/memory/*.db
+*.log
+
+# System
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Sensitive
+credentials/
+secrets/
